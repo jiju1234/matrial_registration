@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="material_registration_form" model="ir.ui.view">
+        <field name="name">material.registration</field>
+        <field name="model">material.registration</field>
+        <field name="arch" type="xml">
+            <form string="Material Registration">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="material_ype"/>
+                        </group>
+                        <group>
+                            <field name="material_code"/>
+                            <field name="material_buy_price"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="material_registration_tree" model="ir.ui.view">
+        <field name="name">material.registration</field>
+        <field name="model">material.registration</field>
+        <field name="arch" type="xml">
+            <tree string="Material Registration">
+
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="material_ype"/>
+
+                <field name="material_code"/>
+                <field name="material_buy_price"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="material_registration_search" model="ir.ui.view">
+        <field name="name">material.registration</field>
+        <field name="model">material.registration</field>
+        <field name="arch" type="xml">
+            <search string="Search Tax Templates">
+
+                <field name="name"/>
+                <field name="material_ype"/>
+                <group expand="0" string="Group By">
+                    <filter string="Material Type" name="material_ype" domain="[]" context="{'group_by': 'material_ype'}"/>
+                </group>
+
+            </search>
+        </field>
+    </record>
+
+    <record id="material_registration_action" model="ir.actions.act_window">
+        <field name="name">Material Registration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">material.registration</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+
+
+    <menuitem id="material_menu_registration_main_menu" name="Material Registration"
+    />
+    <menuitem id="material_menu_registration" action="material_registration_action" name="Material Registration"
+              parent="material_menu_registration_main_menu"/>
+
+</odoo>
